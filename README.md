@@ -24,6 +24,10 @@ DataConvert
 
   `DataConvert4 -f test0001.conf -l tag_number0001.list -dir ./ -o test0001.h5`
 
+- Alternatively, run `DataConverterGUI`:
+
+  `DataConverterGUI`
+
 - Run `DataCompress3.py` using Python 2.7 to produce averages for each scan position:
 
   `python2.7 dataCompress3.py -f 259782.h5 -c run259782_out.csv -a`
