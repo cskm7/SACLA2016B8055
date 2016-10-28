@@ -41,11 +41,10 @@ def radialProfile(image, center, mask=None, wavelength=1.12, detectorDistance=0.
     if mask is None:
         bin_values, bin_edges = np.histogram(qRad, weights=image, bins=nBins) 
         bin_normalizations = np.histogram(qRad, bins=bin_edges)
-        #bin_normalizations = np.histogram(qRad[mask], bins=bin_edges)
     else:
         bin_values, bin_edges = np.histogram(qRad[mask], weights=image[mask], bins=nBins)
         bin_normalizations = np.histogram(qRad[mask], bins=bin_edges)
-    Iq = bin_values/bin_normalizations[0]
+    Iq = bin_values[np.where(bin_normalizations[0] > 0)]/bin_normalizations[0][np.where(bin_normalizations[0]
     q = np.array([(bin_edges[i] + bin_edges[i+1])/2 for i in range(len(bin_values))])
 
     # run into 'High memory usage error', try to delete
