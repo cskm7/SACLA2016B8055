@@ -49,13 +49,26 @@ Submit
 
 - Pre-process darks using `qsub`:
 
-  `./pre_process_dark.sh 498492`
+  `./00_pre_process_dark.sh 498492`
 
 - Pre-process BG-subtracted runs using `qsub`:
 
-  `./pre_process_run.sh 498491 498492`
+  `./00_pre_process_run.sh 498491 498492`
 
 - Pre-process several runs/darks by appending more runs than 2/1, run the scripts without arguments for help.
+
+Storage
+-------
+
+Storage at SACLA exists in 3 types:
+
+- `/home/`: long-term storage of programs and source codes (LIFETIME: unlimited)
+
+- `/work/`: short-term storage of processed data (LIFETIME: 1 month)
+
+- `/UserData/`: long-term storage of processed data (LIFETIME: 1 year)
+
+`/work/` is stored on disk, whereas `/UserData/` is stored on tape, which means that `/work/` is much faster to read/write. Preferable analysis pipeline processes data in `/work/` during experiment, then moves important data to `/UserData/` for long-term storage after experiment is finished.
 
 Information
 -----------
